@@ -2,7 +2,7 @@ extends Node3D
 @export var left_obstacle = preload("res://scenes/left_obstacle.tscn")
 var rng = RandomNumberGenerator.new();
 var chance_array = [1, 2, 3];
-var weights = PackedFloat32Array([1, 1, 0.8])
+var weights = PackedFloat32Array([1, 1, 2])
 var chance: int;
 
 func _ready() -> void:
@@ -31,6 +31,6 @@ func _on_timer_timeout() -> void:
 	elif chance == 2:
 		_spawn(Vector3(0.7, 0, -10));
 	elif chance == 3:
-		_spawn(Vector3(0, 4, -10));
+		_spawn(Vector3(0, 3.9, -10));
 	chance = chance_array[rng.rand_weighted(weights)]; 
 	$Timer.start();

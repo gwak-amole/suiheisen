@@ -9,6 +9,9 @@ points = PackedVector3Array(-0.22, 0, 0, 0.22, 0, 0, -0.222, -0.15, 0, 0.22, -0.
 [sub_resource type="SphereShape3D" id="SphereShape3D_u8vuu"]
 radius = 0.18072133
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qhqgy"]
+points = PackedVector3Array(-0.1, 0.08, 0, 0.1, 0.08, 0, -0.22, -0.15, 0, 0.22, -0.15, 0, -0.1, 0.08, 0.1, 0.1, 0.08, 0.1, -0.22, -0.15, 0.1, 0.22, -0.15, 0.1)
+
 [node name="player" type="CharacterBody3D" unique_id=2115349028 node_paths=PackedStringArray("anim", "collider", "left_collider", "right_collider", "limbo_collider", "timer")]
 script = ExtResource("1_g2els")
 anim = NodePath("AnimatedSprite3D")
@@ -19,7 +22,8 @@ limbo_collider = NodePath("limbo_collider")
 timer = NodePath("Timer")
 
 [node name="collider" type="CollisionShape3D" parent="." unique_id=1004159615]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003043294, -0.10882568, -0.02346325)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003, -0.109, -0.05)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_g2els")
 
 [node name="left_collider" type="CollisionShape3D" parent="." unique_id=328473928]
@@ -33,16 +37,15 @@ visible = false
 shape = SubResource("SphereShape3D_u8vuu")
 
 [node name="limbo_collider" type="CollisionShape3D" parent="." unique_id=537523134]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19206479, 0)
-visible = false
-shape = SubResource("SphereShape3D_u8vuu")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -0.05)
+shape = SubResource("ConvexPolygonShape3D_qhqgy")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1001142518]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0078250915, 0)
 billboard = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_3vyb7")
-animation = &"run"
+animation = &"limbo"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=794374147]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08302781, 0.42758775)
