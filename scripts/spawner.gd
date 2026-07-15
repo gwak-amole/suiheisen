@@ -1,27 +1,36 @@
 extends Node3D
 @export var left_obstacle = preload("res://scenes/left_obstacle.tscn")
+var rng = RandomNumberGenerator.new();
+var chance_array = [1, 2, 3];
+var weights = PackedFloat32Array([1, 1, 0.8])
+var chance: int;
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	chance = chance_array[rng.rand_weighted(weights)];
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 	
 	
-func _spawn_left(spawn_pos: Vector3):
+func _spawn(spawn_pos: Vector3):
 	var obj = left_obstacle.instantiate();
 	add_child(obj);
 	obj.global_position = spawn_pos
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.name == "left_obstacle":
+	if body.name.containsn("obstacle"):
+		print("queue freed")
 		body.queue_free();
 
 
 func _on_timer_timeout() -> void:
-	_spawn_left(Vector3(-0.7, 0, -10)); 
+	if chance == 1:
+		_spawn(Vector3(-0.7, 0, -10)); 
+	elif chance == 2:
+		_spawn(Vector3(0.7, 0, -10));
+	elif chance == 3:
+		_spawn(Vector3(0, 5, -10));
+	chance = chance_array[rng.rand_weighted(weights)]; 
 	$Timer.start();
