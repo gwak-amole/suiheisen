@@ -8,6 +8,7 @@ const JUMP_VELOCITY = 4.5
 @export var left_collider: CollisionShape3D
 @export var right_collider: CollisionShape3D
 @export var limbo_collider: CollisionShape3D
+@export var timer: Timer
 
 
 func _ready():
@@ -25,18 +26,21 @@ func _physics_process(delta: float) -> void:
 		left_collider.set_deferred("disabled", false)
 		right_collider.set_deferred("disabled", true)
 		limbo_collider.set_deferred("disabled", true)
+		timer.start();
 	elif Input.is_action_just_pressed("v"):
 		anim.play("dodge_to_right")
 		collider.set_deferred("disabled", true)
 		left_collider.set_deferred("disabled", true)
 		right_collider.set_deferred("disabled", false)
 		limbo_collider.set_deferred("disabled", true)
+		timer.start();
 	elif Input.is_action_just_pressed("c"):
 		anim.play("limbo");
 		collider.set_deferred("disabled", true)
 		left_collider.set_deferred("disabled", true)
 		right_collider.set_deferred("disabled", true)
 		limbo_collider.set_deferred("disabled", false)
+		timer.start();
 	elif Input.is_action_just_pressed("x"):
 		anim.play("run")
 		collider.set_deferred("disabled", false)
