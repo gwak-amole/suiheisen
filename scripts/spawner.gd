@@ -1,5 +1,5 @@
 extends Node3D
-@export var left_obstacle = preload("res://scenes/left_obstacle.tscn")
+@export var obstacle = preload("res://scenes/obstacle.tscn")
 var rng = RandomNumberGenerator.new();
 var chance_array = [1, 2, 3];
 var weights = PackedFloat32Array([1, 1, 1.2])
@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	
 	
 func _spawn(spawn_pos: Vector3):
-	var obj = left_obstacle.instantiate();
+	var obj = obstacle.instantiate();
 	add_child(obj);
 	obj.global_position = spawn_pos
 
