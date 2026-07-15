@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://btdoe57f6380h"]
 
 [ext_resource type="PackedScene" uid="uid://cjxfa38167n8p" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://1nlp4t3ty1kl" path="res://scripts/spawner.gd" id="2_0wfyh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
 size = Vector3(60, 2, 60)
 
 [sub_resource type="BoxMesh" id="BoxMesh_o5qli"]
 size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0wfyh"]
+size = Vector3(6, 0.5, 2)
 
 [node name="main" type="Node3D" unique_id=1869334182]
 
@@ -20,7 +24,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = SubResource("BoxMesh_o5qli")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1616653918]
-transform = Transform3D(1, 0, 0, 0, -0.25881904, 0.9659258, 0, -0.9659258, -0.25881904, 0, 14, 0)
+transform = Transform3D(1, 0, 0, 0, -2.9802322e-08, 1, 0, -1, -2.9802322e-08, 0, 8, 0)
 shadow_enabled = true
 
 [node name="player" parent="." unique_id=2115349028 instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Spawner" type="Node3D" parent="." unique_id=1816280301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6.2016706)
+script = ExtResource("2_0wfyh")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=1523200477]
+wait_time = 3.0
+autostart = true
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1224043493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=833460986]
+shape = SubResource("BoxShape3D_0wfyh")
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="Spawner" method="_on_area_3d_body_entered"]
