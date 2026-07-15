@@ -2,7 +2,7 @@ extends Node3D
 @export var left_obstacle = preload("res://scenes/left_obstacle.tscn")
 var rng = RandomNumberGenerator.new();
 var chance_array = [1, 2, 3];
-var weights = PackedFloat32Array([1, 1, 2])
+var weights = PackedFloat32Array([1, 1, 1.2])
 var chance: int;
 
 func _ready() -> void:
