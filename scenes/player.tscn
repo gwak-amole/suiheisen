@@ -1,13 +1,32 @@
 [gd_scene format=3 uid="uid://cjxfa38167n8p"]
 
+[ext_resource type="SpriteFrames" uid="uid://cbbqbt78u1udh" path="res://assets/sprite_frames/main_idle.tres" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bagaxqebn8sk2" path="res://scripts/player.gd" id="1_g2els"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_u8vuu"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_3vyb7"]
+[node name="player" type="CharacterBody3D" unique_id=2115349028 node_paths=PackedStringArray("anim")]
+script = ExtResource("1_g2els")
+anim = NodePath("AnimatedSprite3D")
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=2115349028]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1004159615]
+[node name="collider" type="CollisionShape3D" parent="." unique_id=1004159615]
 shape = SubResource("SphereShape3D_u8vuu")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1528686055]
-mesh = SubResource("SphereMesh_3vyb7")
+[node name="left_collider" type="CollisionShape3D" parent="." unique_id=328473928]
+shape = SubResource("SphereShape3D_u8vuu")
+
+[node name="right_collider" type="CollisionShape3D" parent="." unique_id=1830813125]
+shape = SubResource("SphereShape3D_u8vuu")
+
+[node name="limbo_collider" type="CollisionShape3D" parent="." unique_id=537523134]
+shape = SubResource("SphereShape3D_u8vuu")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1001142518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0078250915, 0)
+billboard = 2
+texture_filter = 0
+sprite_frames = ExtResource("1_3vyb7")
+animation = &"idle"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=794374147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08302781, 0.42758775)
