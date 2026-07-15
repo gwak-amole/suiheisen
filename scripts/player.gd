@@ -45,3 +45,11 @@ func _physics_process(delta: float) -> void:
 		limbo_collider.set_deferred("disabled", true)
 
 	move_and_slide()
+
+
+func _on_timer_timeout() -> void:
+	anim.play("run")
+	collider.set_deferred("disabled", false)
+	left_collider.set_deferred("disabled", true)
+	right_collider.set_deferred("disabled", true)
+	limbo_collider.set_deferred("disabled", true)

@@ -3,8 +3,11 @@
 [ext_resource type="SpriteFrames" uid="uid://cbbqbt78u1udh" path="res://assets/sprite_frames/main_idle.tres" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://bagaxqebn8sk2" path="res://scripts/player.gd" id="1_g2els"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_g2els"]
+size = Vector3(0.40288162, 0.10070801, 0.11364555)
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_u8vuu"]
-radius = 0.2542789
+radius = 0.18072133
 
 [node name="player" type="CharacterBody3D" unique_id=2115349028 node_paths=PackedStringArray("anim", "collider", "left_collider", "right_collider", "limbo_collider")]
 script = ExtResource("1_g2els")
@@ -15,18 +18,19 @@ right_collider = NodePath("right_collider")
 limbo_collider = NodePath("limbo_collider")
 
 [node name="collider" type="CollisionShape3D" parent="." unique_id=1004159615]
-shape = SubResource("SphereShape3D_u8vuu")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003014207, -0.10882568, -0.02346325)
+shape = SubResource("BoxShape3D_g2els")
 
 [node name="left_collider" type="CollisionShape3D" parent="." unique_id=328473928]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, -0.1, 0)
 shape = SubResource("SphereShape3D_u8vuu")
 
 [node name="right_collider" type="CollisionShape3D" parent="." unique_id=1830813125]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, -0.1, 0)
 shape = SubResource("SphereShape3D_u8vuu")
 
 [node name="limbo_collider" type="CollisionShape3D" parent="." unique_id=537523134]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1818046, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19206479, 0)
 shape = SubResource("SphereShape3D_u8vuu")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1001142518]
@@ -34,7 +38,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0078250915, 0)
 billboard = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_3vyb7")
-animation = &"limbo"
+animation = &"run"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=794374147]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08302781, 0.42758775)
+
+[node name="Timer" type="Timer" parent="." unique_id=941879018]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

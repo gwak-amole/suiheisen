@@ -31,6 +31,6 @@ func _on_timer_timeout() -> void:
 	elif chance == 2:
 		_spawn(Vector3(0.7, 0, -10));
 	elif chance == 3:
-		_spawn(Vector3(0, 5, -10));
+		_spawn(Vector3(0, 4, -10));
 	chance = chance_array[rng.rand_weighted(weights)]; 
 	$Timer.start();
