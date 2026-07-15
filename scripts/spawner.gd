@@ -8,6 +8,8 @@ var weights = PackedFloat32Array([1, 1, 1.2])
 var chance: int;
 var spawn_cap = 3
 var obs_in_scene = 0;
+var cooldown = 1.0
+var just_spawned = false;
 
 func _ready() -> void:
 	chance = chance_array[rng.rand_weighted(weights)];
@@ -19,12 +21,15 @@ func _process(delta: float) -> void:
 	
 	
 func _spawn(spawn_pos: Vector3):
-	if obs_in_scene < spawn_cap:
+	if obs_in_scene < spawn_cap && !just_spawned:
 		var obj = obstacle.instantiate();
 		print(obj.name);
 		add_child(obj);
 		obs_in_scene += 1;
 		obj.global_position = spawn_pos
+		just_spawned = true;
+		await get_tree().create_timer(cooldown).timeout
+		just_spawned = false;
 
 func _on_timer_timeout() -> void:
 	if chance == 1:
@@ -37,8 +42,9 @@ func _on_timer_timeout() -> void:
 	timer.start();
 
 func increase_spawn_freq():
-	timer.wait_time *= 0.9
-	print(timer.wait_time)
+	timer.wait_time *= 0.99
+	cooldown *= 0.9
+	print(timer.wait_time, cooldown)
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.name == "obstacle_area":
