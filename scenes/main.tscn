@@ -31,7 +31,7 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Spawner" type="Node3D" parent="." unique_id=1816280301]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -6.2016706)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.2016706)
 script = ExtResource("2_0wfyh")
 
 [node name="Timer" type="Timer" parent="Spawner" unique_id=1523200477]
