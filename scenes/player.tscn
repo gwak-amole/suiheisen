@@ -46,7 +46,7 @@ billboard = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_3vyb7")
 animation = &"dodge_to_right"
-frame_progress = 0.54408777
+frame_progress = 0.71687376
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=794374147]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08302781, 0.42758775)

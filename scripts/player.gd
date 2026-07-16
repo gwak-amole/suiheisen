@@ -66,5 +66,5 @@ func _on_player_area_area_entered(area: Area3D) -> void:
 		area.name += "hit";
 		
 func game_over():
-	print("gc signal detected")
+	timer.stop()
 	anim.play("idle")
