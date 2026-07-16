@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cjxfa38167n8p" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://1nlp4t3ty1kl" path="res://scripts/spawner.gd" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://7vtx21mriktj" path="res://scripts/game_controller.gd" id="3_sugp2"]
+[ext_resource type="FontFile" uid="uid://lflo3krkexmm" path="res://fonts/Geist_Pixel/GeistPixel-Regular-VariableFont_ELSH.ttf" id="4_jyhfs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
 size = Vector3(60, 2, 60)
@@ -42,18 +43,44 @@ wait_time = 3.0
 autostart = true
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1224043493]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=833460986]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.5)
 shape = SubResource("BoxShape3D_0wfyh")
 
-[node name="Game Controller" type="Node" parent="." unique_id=1999561990 node_paths=PackedStringArray("timer")]
+[node name="Game Controller" type="Node" parent="." unique_id=1999561990 node_paths=PackedStringArray("spawner", "timer", "points_label")]
 script = ExtResource("3_sugp2")
+spawner = NodePath("../Spawner")
 timer = NodePath("Timer")
+points_label = NodePath("../Control/Points")
 
 [node name="Timer" type="Timer" parent="Game Controller" unique_id=651360898]
 autostart = true
+
+[node name="Control" type="Control" parent="." unique_id=1426644149]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Points" type="Label" parent="Control" unique_id=1230935266]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41319445
+anchor_top = 0.046296295
+anchor_right = 0.5868056
+anchor_bottom = 0.15432099
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_jyhfs")
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area3D" to="Spawner" method="_on_area_3d_area_entered"]

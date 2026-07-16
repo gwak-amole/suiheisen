@@ -57,3 +57,9 @@ func _on_timer_timeout() -> void:
 	left_collider.set_deferred("disabled", true)
 	right_collider.set_deferred("disabled", true)
 	limbo_collider.set_deferred("disabled", true)
+
+
+func _on_player_area_area_entered(area: Area3D) -> void:
+	if area.name == "obstacle_area":
+		area.name += "hit";
+		print(area.name)

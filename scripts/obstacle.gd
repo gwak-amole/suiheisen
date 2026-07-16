@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
@@ -11,8 +10,3 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_slide()
-
-
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.name == "player":
-		print("OI HIT")

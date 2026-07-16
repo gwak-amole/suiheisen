@@ -15,28 +15,27 @@ points = PackedVector3Array(-0.1, 0.08, 0, 0.1, 0.08, 0, -0.22, -0.15, 0, 0.22, 
 [node name="player" type="CharacterBody3D" unique_id=2115349028 node_paths=PackedStringArray("anim", "collider", "left_collider", "right_collider", "limbo_collider", "timer")]
 script = ExtResource("1_g2els")
 anim = NodePath("AnimatedSprite3D")
-collider = NodePath("collider")
-left_collider = NodePath("left_collider")
-right_collider = NodePath("right_collider")
-limbo_collider = NodePath("limbo_collider")
+collider = NodePath("player_area/collider")
+left_collider = NodePath("player_area/left_collider")
+right_collider = NodePath("player_area/right_collider")
+limbo_collider = NodePath("player_area/limbo_collider")
 timer = NodePath("Timer")
 
-[node name="collider" type="CollisionShape3D" parent="." unique_id=1004159615]
+[node name="player_area" type="Area3D" parent="." unique_id=2026342528]
+
+[node name="collider" type="CollisionShape3D" parent="player_area" unique_id=1004159615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003, -0.109, -0.05)
-visible = false
 shape = SubResource("ConvexPolygonShape3D_g2els")
 
-[node name="left_collider" type="CollisionShape3D" parent="." unique_id=328473928]
+[node name="left_collider" type="CollisionShape3D" parent="player_area" unique_id=328473928]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, -0.1, 0)
-visible = false
 shape = SubResource("SphereShape3D_u8vuu")
 
-[node name="right_collider" type="CollisionShape3D" parent="." unique_id=1830813125]
+[node name="right_collider" type="CollisionShape3D" parent="player_area" unique_id=1830813125]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, -0.1, 0)
-visible = false
 shape = SubResource("SphereShape3D_u8vuu")
 
-[node name="limbo_collider" type="CollisionShape3D" parent="." unique_id=537523134]
+[node name="limbo_collider" type="CollisionShape3D" parent="player_area" unique_id=537523134]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -0.05)
 shape = SubResource("ConvexPolygonShape3D_qhqgy")
 
@@ -53,4 +52,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08302781, 0.42758775)
 [node name="Timer" type="Timer" parent="." unique_id=941879018]
 wait_time = 0.5
 
+[connection signal="area_entered" from="player_area" to="." method="_on_player_area_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
