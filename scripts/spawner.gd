@@ -50,12 +50,9 @@ func increase_spawn_freq():
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.name.contains("obstacle_area"):
-		print(area.name)
 		if area.name.contains("hit"):
-			print("hit so skip")
 			pass
 		else:
-			print("no hit no skip")
 			add_points.emit()
 		area.get_parent_node_3d().queue_free();
 		obs_in_scene-=1;

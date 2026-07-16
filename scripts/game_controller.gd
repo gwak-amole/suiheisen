@@ -22,7 +22,6 @@ func _on_timer_timeout() -> void:
 	timer.start()
 	
 func add_points():
-	print("adding points from gc")
 	points += points_inc;
 	points = int(points);
 	points_label.text = str(points);

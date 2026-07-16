@@ -62,4 +62,3 @@ func _on_timer_timeout() -> void:
 func _on_player_area_area_entered(area: Area3D) -> void:
 	if area.name == "obstacle_area":
 		area.name += "hit";
-		print(area.name)
