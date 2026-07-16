@@ -7,11 +7,13 @@ var chance = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	message.hide()
 	anim.play("fade_in")
 	await anim.animation_finished
 	anim.play("cubicle_modulate")
 	rng.randomize();
 	chance = rng.randi_range(0, 3)
+	message.show()
 	if chance == 0:
 		message.text = "it looks like you're working overtime..."
 		cubicle.texture = preload("res://assets/game_over_assets/cubicle_game_over_1.png")
