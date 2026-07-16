@@ -9,9 +9,11 @@ const JUMP_VELOCITY = 4.5
 @export var right_collider: CollisionShape3D
 @export var limbo_collider: CollisionShape3D
 @export var timer: Timer
+@export var gc: Node
 
 
 func _ready():
+	gc.connect("game_over", game_over)
 	anim.play("run");
 	left_collider.set_deferred("disabled", true)
 	right_collider.set_deferred("disabled", true)
@@ -62,3 +64,7 @@ func _on_timer_timeout() -> void:
 func _on_player_area_area_entered(area: Area3D) -> void:
 	if area.name == "obstacle_area":
 		area.name += "hit";
+		
+func game_over():
+	print("gc signal detected")
+	anim.play("idle")

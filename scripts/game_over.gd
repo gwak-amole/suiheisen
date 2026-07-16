@@ -7,6 +7,8 @@ var chance = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	anim.play("fade_in")
+	await anim.animation_finished
 	anim.play("cubicle_modulate")
 	rng.randomize();
 	chance = rng.randi_range(0, 3)

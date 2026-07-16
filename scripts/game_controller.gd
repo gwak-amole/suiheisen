@@ -1,15 +1,19 @@
 extends Node
 signal faster
+signal game_over
 @export var spawner: Node3D;
 @export var timer: Timer;
 @export var points_label: Label
 @export var horizon: TextureProgressBar
+@export var anim: AnimationPlayer
+@export var fade_texture: ColorRect
 var hit = false;
 var points: int = 0;
 var points_inc = 5;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	fade_texture.hide()
 	spawner.add_points.connect(add_points)
 	spawner.hurt.connect(hurt)
 	hit = false;
@@ -31,4 +35,8 @@ func add_points():
 func hurt():
 	horizon.value = maxf(horizon.value - horizon.step, horizon.min_value)
 	if horizon.value == 0:
+		game_over.emit();
+		fade_texture.show()
+		anim.play("fade_out")
+		await anim.animation_finished
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")

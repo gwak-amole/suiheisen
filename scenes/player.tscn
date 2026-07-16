@@ -44,7 +44,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0078250915, 0)
 billboard = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_3vyb7")
-animation = &"limbo"
+animation = &"idle"
+frame_progress = 0.18776475
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=794374147]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08302781, 0.42758775)
