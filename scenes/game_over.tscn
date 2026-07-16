@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dasv1uw6bcvaj"]
+
+[ext_resource type="Script" uid="uid://cxl3d1cfn4eie" path="res://scripts/game_over.gd" id="1_wqhvx"]
+[ext_resource type="FontFile" uid="uid://lflo3krkexmm" path="res://fonts/Geist_Pixel/GeistPixel-Regular-VariableFont_ELSH.ttf" id="2_tbwuq"]
+
+[node name="Game Over" type="Control" unique_id=2067548185 node_paths=PackedStringArray("message")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqhvx")
+message = NodePath("message")
+
+[node name="message" type="Label" parent="." unique_id=636533818]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.104166664
+anchor_top = 0.4691358
+anchor_right = 0.7335069
+anchor_bottom = 0.5925926
+offset_top = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tbwuq")
+theme_override_font_sizes/font_size = 40
+text = "it looks like you're working overtime..."
+metadata/_edit_use_anchors_ = true
+
+[node name="Game Over" type="Label" parent="." unique_id=1588155846]
+custom_minimum_size = Vector2(400, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.10329861
+anchor_top = 0.27314815
+anchor_right = 0.4809028
+anchor_bottom = 0.4351852
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 1.0
+offset_bottom = 3.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_tbwuq")
+theme_override_font_sizes/font_size = 80
+text = "game over..."
+metadata/_edit_use_anchors_ = true
