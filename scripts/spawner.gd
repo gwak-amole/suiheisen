@@ -1,6 +1,7 @@
 extends Node3D
 
 signal add_points
+signal hurt
 
 @export var obstacle = preload("res://scenes/obstacle.tscn")
 @export var gc: Node
@@ -51,7 +52,7 @@ func increase_spawn_freq():
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.name.contains("obstacle_area"):
 		if area.name.contains("hit"):
-			pass
+			hurt.emit()
 		else:
 			add_points.emit()
 		area.get_parent_node_3d().queue_free();
