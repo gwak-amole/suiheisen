@@ -47,3 +47,8 @@ theme_override_fonts/font = ExtResource("2_tbwuq")
 theme_override_font_sizes/font_size = 80
 text = "game over..."
 metadata/_edit_use_anchors_ = true
+
+[node name="cubicle" type="TextureRect" parent="." unique_id=796275970]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
