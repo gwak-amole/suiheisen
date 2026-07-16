@@ -31,4 +31,4 @@ func add_points():
 func hurt():
 	horizon.value = maxf(horizon.value - horizon.step, horizon.min_value)
 	if horizon.value == 0:
-		pass # game over
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
