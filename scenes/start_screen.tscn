@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b6g5ofg7hlalx" path="res://assets/start_screen_assets/start_screen.png" id="1_o7i0r"]
 [ext_resource type="FontFile" uid="uid://lflo3krkexmm" path="res://fonts/Geist_Pixel/GeistPixel-Regular-VariableFont_ELSH.ttf" id="2_he1sj"]
+[ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16/DotGothic16-Regular.ttf" id="2_r2jwc"]
 
 [node name="start_screen" type="Control" unique_id=2089226285]
 layout_mode = 3
@@ -48,7 +49,7 @@ offset_right = 62.5
 offset_bottom = 71.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_he1sj")
+theme_override_fonts/font = ExtResource("2_r2jwc")
 theme_override_font_sizes/font_size = 48
 text = "水平線"
 
