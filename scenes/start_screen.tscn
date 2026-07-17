@@ -118,7 +118,7 @@ _data = {
 &"start_screen_movement": SubResource("Animation_ka6nf")
 }
 
-[node name="start_screen" type="Control" unique_id=2089226285 node_paths=PackedStringArray("anim_blink", "anim")]
+[node name="start_screen" type="Control" unique_id=2089226285 node_paths=PackedStringArray("anim_blink", "anim", "black")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -128,6 +128,7 @@ grow_vertical = 2
 script = ExtResource("1_hm208")
 anim_blink = NodePath("blink")
 anim = NodePath("AnimationPlayer")
+black = NodePath("black")
 
 [node name="bg" type="TextureRect" parent="." unique_id=1434020044]
 layout_mode = 1
@@ -232,3 +233,13 @@ position = Vector2(576, 324)
 sprite_frames = ExtResource("7_o30b1")
 frame = 13
 frame_progress = 1.0
+
+[node name="black" type="ColorRect" parent="." unique_id=1474240255]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
