@@ -5,6 +5,69 @@
 [ext_resource type="FontFile" uid="uid://lflo3krkexmm" path="res://fonts/Geist_Pixel/GeistPixel-Regular-VariableFont_ELSH.ttf" id="2_he1sj"]
 [ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16/DotGothic16-Regular.ttf" id="2_r2jwc"]
 [ext_resource type="Texture2D" uid="uid://bd24ov57qt37v" path="res://assets/buttons/instruction_buttons_2.png" id="4_r2jwc"]
+[ext_resource type="Texture2D" uid="uid://b2d6t0nmpnilh" path="res://assets/buttons/instruction_buttons_1.png" id="6_5pab1"]
+
+[sub_resource type="Animation" id="Animation_o30b1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("instruction button:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_r2jwc")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.3647059)]
+}
+
+[sub_resource type="Animation" id="Animation_ka6nf"]
+resource_name = "start_screen_movement"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("instruction button:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_5pab1"), ExtResource("4_r2jwc"), ExtResource("6_5pab1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.3647059), Color(0, 0, 0, 0.24705882), Color(0, 0, 0, 0.3647059)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ws7p0"]
+_data = {
+&"RESET": SubResource("Animation_o30b1"),
+&"start_screen_movement": SubResource("Animation_ka6nf")
+}
 
 [node name="start_screen" type="Control" unique_id=2089226285]
 layout_mode = 3
@@ -108,3 +171,6 @@ offset_bottom = 608.0
 theme_override_fonts/font = ExtResource("2_he1sj")
 theme_override_font_sizes/font_size = 30
 text = "to start"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=375113234]
+libraries/ = SubResource("AnimationLibrary_ws7p0")
