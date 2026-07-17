@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://dui6j34xrkei6" path="res://fonts/DotGothic16/DotGothic16-Regular.ttf" id="2_r2jwc"]
 [ext_resource type="Texture2D" uid="uid://bd24ov57qt37v" path="res://assets/buttons/instruction_buttons_2.png" id="4_r2jwc"]
 [ext_resource type="Texture2D" uid="uid://b2d6t0nmpnilh" path="res://assets/buttons/instruction_buttons_1.png" id="6_5pab1"]
+[ext_resource type="SpriteFrames" uid="uid://c2jcy8dci4v8f" path="res://assets/sprite_frames/blinking_frames.tres" id="7_o30b1"]
 
 [sub_resource type="Animation" id="Animation_o30b1"]
 length = 0.001
@@ -60,7 +61,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0.3647059), Color(0, 0, 0, 0.24705882), Color(0, 0, 0, 0.3647059)]
+"values": [Color(0, 0, 0, 0.47058824), Color(0, 0, 0, 0.3882353), Color(0, 0, 0, 0.47058824)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ws7p0"]
@@ -69,7 +70,7 @@ _data = {
 &"start_screen_movement": SubResource("Animation_ka6nf")
 }
 
-[node name="start_screen" type="Control" unique_id=2089226285]
+[node name="start_screen" type="Control" unique_id=2089226285 node_paths=PackedStringArray("anim_blink", "anim")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,6 +78,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hm208")
+anim_blink = NodePath("blink")
+anim = NodePath("AnimationPlayer")
 
 [node name="bg" type="TextureRect" parent="." unique_id=1434020044]
 layout_mode = 1
@@ -174,3 +177,10 @@ text = "to start"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=375113234]
 libraries/ = SubResource("AnimationLibrary_ws7p0")
+
+[node name="blink" type="AnimatedSprite2D" parent="." unique_id=1179336101]
+process_mode = 3
+position = Vector2(576, 324)
+sprite_frames = ExtResource("7_o30b1")
+frame = 13
+frame_progress = 1.0
