@@ -58,6 +58,34 @@ tracks/3/keys = {
 "update": 1,
 "values": [48]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/fade:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ws7p0"]
+resource_name = "fade_out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ka6nf"]
 resource_name = "start_screen_movement"
@@ -115,6 +143,7 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ws7p0"]
 _data = {
 &"RESET": SubResource("Animation_o30b1"),
+&"fade_out": SubResource("Animation_ws7p0"),
 &"start_screen_movement": SubResource("Animation_ka6nf")
 }
 
@@ -128,7 +157,7 @@ grow_vertical = 2
 script = ExtResource("1_hm208")
 anim_blink = NodePath("blink")
 anim = NodePath("AnimationPlayer")
-black = NodePath("black")
+black = NodePath("CanvasLayer/fade")
 
 [node name="bg" type="TextureRect" parent="." unique_id=1434020044]
 layout_mode = 1
@@ -234,9 +263,10 @@ sprite_frames = ExtResource("7_o30b1")
 frame = 13
 frame_progress = 1.0
 
-[node name="black" type="ColorRect" parent="." unique_id=1474240255]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1463843351]
+
+[node name="fade" type="ColorRect" parent="CanvasLayer" unique_id=1474240255]
 process_mode = 3
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
