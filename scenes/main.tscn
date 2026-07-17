@@ -92,7 +92,7 @@ script = ExtResource("3_sugp2")
 spawner = NodePath("../Spawner")
 timer = NodePath("Timer")
 points_label = NodePath("../CanvasLayer/Control/Points")
-horizon = NodePath("../CanvasLayer/Control/TextureProgressBar")
+horizon = NodePath("../CanvasLayer/Control/Horizon Bar")
 anim = NodePath("../AnimationPlayer")
 fade_texture = NodePath("../CanvasLayer/fade")
 
@@ -125,7 +125,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/Control" unique_id=294705713]
+[node name="Horizon Bar" type="TextureProgressBar" parent="CanvasLayer/Control" unique_id=294705713]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
