@@ -35,7 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.3647059)
 
-[node name="Label" type="Label" parent="." unique_id=691651747]
+[node name="kanji" type="Label" parent="." unique_id=691651747]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -52,7 +52,7 @@ theme_override_fonts/font = ExtResource("2_he1sj")
 theme_override_font_sizes/font_size = 48
 text = "水平線"
 
-[node name="Label2" type="Label" parent="." unique_id=1228060603]
+[node name="suiheisen" type="Label" parent="." unique_id=1228060603]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
