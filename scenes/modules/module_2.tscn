@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bnii70hrofbrs"]
+
+[ext_resource type="PackedScene" uid="uid://dpftetgmk2nn0" path="res://scenes/modules/terrain_1.tscn" id="1_1oskc"]
+[ext_resource type="Script" uid="uid://du53u7sfepmhx" path="res://scripts/module.gd" id="1_ntv5y"]
+
+[node name="module2" type="Node3D" unique_id=982636211]
+script = ExtResource("1_ntv5y")
+
+[node name="Terrain_0" parent="." unique_id=1683496961 instance=ExtResource("1_1oskc")]

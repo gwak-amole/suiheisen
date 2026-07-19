@@ -1,0 +1,25 @@
+extends Node3D
+@export var modules: Array[PackedScene] = [];
+var amount = 10;
+var offset = 4;
+var isFirst = true;
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	for n in amount:
+		spawn_module(n*offset*-1)
+
+
+func spawn_module(n):
+	if isFirst:
+		print("spawn first")
+		var instance = modules[0].instantiate();
+		instance.position.z = n;
+		add_child(instance)
+		isFirst = false;
+	else:
+		print("spawn second")
+		var instance2 = modules[1].instantiate();
+		instance2.position.z = n;
+		add_child(instance2)
+		isFirst = true;

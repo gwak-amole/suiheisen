@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bcbvehshxkbv5"]
+
+[ext_resource type="ArrayMesh" uid="uid://cnlovcn3rjwhw" path="res://meshlibrary/road_0.tres" id="1_oodyv"]
+
+[node name="Terrain_0" type="MeshInstance3D" unique_id=1683496961]
+mesh = ExtResource("1_oodyv")

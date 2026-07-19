@@ -11,12 +11,12 @@ config_version=5
 [application]
 
 config/name="suiheisen"
+run/main_scene="uid://dxdtjbd3v8peq"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
