@@ -1,7 +1,7 @@
 extends Node3D
 @export var modules: Array[PackedScene] = [];
-var amount = 10;
-var offset = 4;
+var amount = 20;
+var offset = 2;
 var isFirst = true;
 
 # Called when the node enters the scene tree for the first time.
