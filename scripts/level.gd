@@ -12,13 +12,11 @@ func _ready() -> void:
 
 func spawn_module(n):
 	if isFirst:
-		print("spawn first")
 		var instance = modules[0].instantiate();
 		instance.position.z = n;
 		add_child(instance)
 		isFirst = false;
 	else:
-		print("spawn second")
 		var instance2 = modules[1].instantiate();
 		instance2.position.z = n;
 		add_child(instance2)

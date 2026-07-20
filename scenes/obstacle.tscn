@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://kyrkdvjot48l"]
 
 [ext_resource type="Script" uid="uid://d30c8uvbjwkjk" path="res://scripts/obstacle.gd" id="1_7ukg5"]
+[ext_resource type="PackedScene" uid="uid://oxu7v43stiak" path="res://scenes/traffic_cone_mesh.tscn" id="2_drdry"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ie7qs"]
 size = Vector3(1, 5, 1)
@@ -10,6 +11,7 @@ size = Vector3(1, 5, 1)
 
 [node name="obstacle" type="CharacterBody3D" unique_id=402051798]
 script = ExtResource("1_7ukg5")
+mesh_array = Array[PackedScene]([ExtResource("2_drdry")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1521726607]
 mesh = SubResource("BoxMesh_ie7qs")
