@@ -4,10 +4,10 @@
 [ext_resource type="ArrayMesh" uid="uid://7n12ay0dabxc" path="res://assets/main_game_assets/road_work_sign.tres" id="1_l5jdr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l5jdr"]
-size = Vector3(0.5, 1, 0.5)
+size = Vector3(0.5, 0.25, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4src5"]
-size = Vector3(0.9, 0.9, 0.2)
+size = Vector3(0.75, 0.75, 0.2)
 
 [node name="Road Work Sign" type="Node3D" unique_id=294542140]
 script = ExtResource("1_4src5")
@@ -18,7 +18,7 @@ mesh = ExtResource("1_l5jdr")
 [node name="obstacle_area" type="Area3D" parent="." unique_id=2126172404]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="obstacle_area" unique_id=1267852023]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
 shape = SubResource("BoxShape3D_l5jdr")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="obstacle_area" unique_id=510716460]
