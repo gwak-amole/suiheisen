@@ -31,15 +31,23 @@ func _spawn(spawn_pos: Vector3):
 		add_child(obj);
 		obs_in_scene += 1;
 		obj.global_position = spawn_pos
+		if chance == 1:
+			obj.global_position.x = obj.side_offset
+		elif chance == 2:
+			obj.global_position.x = obj.side_offset * -1
+		if chance == 3: 
+			pass
+		else:
+			obj.global_position.y = obj.y_offset
 		just_spawned = true;
 		await get_tree().create_timer(cooldown).timeout
 		just_spawned = false;
 
 func _on_timer_timeout() -> void:
 	if chance == 1:
-		_spawn(Vector3(-0.5, 0.4, -10)); 
+		_spawn(Vector3(0, 0, -10)); 
 	elif chance == 2:
-		_spawn(Vector3(0.5, 0.4, -10));
+		_spawn(Vector3(0, 0, -10));
 	elif chance == 3:
 		_spawn(Vector3(0, 3.6, -10));
 	chance = chance_array[rng.rand_weighted(weights)]; 

@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://2rkf7fstryxy"]
 
 [ext_resource type="ArrayMesh" uid="uid://7rpa4s3jcx02" path="res://assets/main_game_assets/traffic_cone.tres" id="1_71r74"]
+[ext_resource type="Script" uid="uid://o6d5kctr8vs6" path="res://scripts/traffic_cone.gd" id="1_iby7d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_71r74"]
 size = Vector3(0.7, 3, 0.7)
 
 [node name="Traffic Cone" type="Node3D" unique_id=1109909995]
+script = ExtResource("1_iby7d")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=163453325]
 mesh = ExtResource("1_71r74")

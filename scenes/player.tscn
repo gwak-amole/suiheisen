@@ -5,7 +5,7 @@
 [ext_resource type="Shape3D" uid="uid://dek3dnnn4fvbd" path="res://assets/collision_shapes/new_convex_polygon_shape_3d.tres" id="2_qhqgy"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g2els"]
-points = PackedVector3Array(-0.22, 0, 0, 0.22, 0, 0, -0.222, -0.15, 0, 0.22, -0.15, 0, -0.075, 0.3, 0, 0.07, 0.3, 0, -0.22, 0, 0.1, 0.22, 0, 0.1, -0.22, -0.15, 0.1, 0.22, -0.15, 0.1, -0.07, 0.3, 0.1, 0.07, 0.3, 0.1)
+points = PackedVector3Array(-0.1, 0.8, 0, 0.1, 0.8, 0, -0.222, -0.15, 0, 0.22, -0.15, 0, -0.075, 0.3, 0, 0.07, 0.3, 0, -0.1, 0.8, 0.1, 0.1, 0.8, 0.1, -0.22, -0.15, 0.1, 0.22, -0.15, 0.1, -0.07, 0.3, 0.1, 0.07, 0.3, 0.1, 0.23, 0.48, 0, 0.23, 0.48, 0.1, -0.23, 0.48, 0, -0.23, 0.48, 0)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dqkch"]
 points = PackedVector3Array(0.15, -0.15, 0, -0.2, -0.15, 0, 0.15, 0.2, 0, -0.08, 0.2, 0, 0.15, -0.15, -0.1, -0.2, -0.15, -0.1, 0.15, 0.2, -0.1, -0.08, 0.2, -0.1)
@@ -25,19 +25,22 @@ timer = NodePath("Timer")
 [node name="player_area" type="Area3D" parent="." unique_id=2026342528]
 
 [node name="collider" type="CollisionShape3D" parent="player_area" unique_id=1004159615]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003, -0.109, -0.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0029718368, -0.107081205, -0.050876785)
 shape = SubResource("ConvexPolygonShape3D_g2els")
 
 [node name="left_collider" type="CollisionShape3D" parent="player_area" unique_id=328473928]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+visible = false
 shape = ExtResource("2_qhqgy")
 
 [node name="right_collider" type="CollisionShape3D" parent="player_area" unique_id=1830813125]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08, -0.1, 0)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_dqkch")
 
 [node name="limbo_collider" type="CollisionShape3D" parent="player_area" unique_id=537523134]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -0.05)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_qhqgy")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1001142518]
@@ -45,11 +48,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 billboard = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_3vyb7")
-animation = &"dodge_to_right"
-frame_progress = 0.71687376
+animation = &"run"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=794374147]
-transform = Transform3D(1, 0, 0, 0, 0.99822426, -0.059567712, 0, 0.059567712, 0.99822426, 0, 0.5475075, 0.428)
+transform = Transform3D(1, 0, 0, 0, 0.99822426, -0.059567712, 0, 0.059567712, 0.99822426, 0, 0.5570539, 0.428)
+visible = false
 
 [node name="Timer" type="Timer" parent="." unique_id=941879018]
 wait_time = 0.5
