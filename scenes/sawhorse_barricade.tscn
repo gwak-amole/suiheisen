@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dphlqmqle6qhg"]
+
+[ext_resource type="Script" uid="uid://caa7pwas6cq7d" path="res://scripts/sawhorse_barricade.gd" id="1_6jsew"]
+[ext_resource type="ArrayMesh" uid="uid://dxnhwdr33xlej" path="res://assets/main_game_assets/sawhorse_barricade.tres" id="1_xpjx3"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xpjx3"]
+points = PackedVector3Array(1.2, -0.5, 0.5, -1.2, -0.5, 0.5, 1.2, -0.5, -0.5, -1.2, -0.5, -0.5, 1.2, 1.2, 0.1, -1.2, 1.2, 0.1, 1.2, 1.2, -0.1, -1.2, 1.2, -0.1)
+
+[node name="Sawhorse Barricade" type="Node3D" unique_id=1802360327]
+script = ExtResource("1_6jsew")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1311503471]
+mesh = ExtResource("1_xpjx3")
+
+[node name="obstacle_area" type="Area3D" parent="." unique_id=1125829062]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="obstacle_area" unique_id=945850999]
+shape = SubResource("ConvexPolygonShape3D_xpjx3")
