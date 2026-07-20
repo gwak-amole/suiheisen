@@ -6,8 +6,9 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 func _ready():
-	var obstacle_texture = mesh_array[0].instantiate();
-	obstacle_texture.position = global_position
+	var obstacle = mesh_array[0].instantiate();
+	obstacle.position = global_position
+	add_child(obstacle)
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector3.BACK;

@@ -37,9 +37,9 @@ func _spawn(spawn_pos: Vector3):
 
 func _on_timer_timeout() -> void:
 	if chance == 1:
-		_spawn(Vector3(-0.7, 0, -10)); 
+		_spawn(Vector3(-0.5, 0.4, -10)); 
 	elif chance == 2:
-		_spawn(Vector3(0.7, 0, -10));
+		_spawn(Vector3(0.5, 0.4, -10));
 	elif chance == 3:
 		_spawn(Vector3(0, 3.6, -10));
 	chance = chance_array[rng.rand_weighted(weights)]; 
