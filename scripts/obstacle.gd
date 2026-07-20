@@ -7,7 +7,6 @@ const JUMP_VELOCITY = 4.5
 
 func _ready():
 	var obstacle = mesh_array[0].instantiate();
-	obstacle.position = global_position
 	add_child(obstacle)
 
 func _physics_process(delta: float) -> void:

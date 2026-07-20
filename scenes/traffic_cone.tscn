@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://2rkf7fstryxy"]
 
-[ext_resource type="ArrayMesh" uid="uid://48eswirvhhaj" path="res://assets/main_game_assets/traffic_cone.tres" id="1_71r74"]
+[ext_resource type="ArrayMesh" uid="uid://7rpa4s3jcx02" path="res://assets/main_game_assets/traffic_cone.tres" id="1_71r74"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_71r74"]
-points = PackedVector3Array(-0.35, -0.45, 0.4, 0.35, -0.45, 0.4, 0.35, -0.45, -0.4, -0.35, -0.45, -0.4, 0, 0.45, 0)
+[sub_resource type="BoxShape3D" id="BoxShape3D_71r74"]
+size = Vector3(0.7, 3, 0.7)
 
 [node name="Traffic Cone" type="Node3D" unique_id=1109909995]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=163453325]
 mesh = ExtResource("1_71r74")
 
-[node name="obstacle_area" type="Area3D" parent="." unique_id=8974790]
+[node name="obstacle_area" type="Area3D" parent="." unique_id=74978878]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="obstacle_area" unique_id=1055239186]
-shape = SubResource("ConvexPolygonShape3D_71r74")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="obstacle_area" unique_id=952935095]
+shape = SubResource("BoxShape3D_71r74")

@@ -41,7 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -0.05)
 shape = SubResource("ConvexPolygonShape3D_qhqgy")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1001142518]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0078250915, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 billboard = 2
 texture_filter = 0
 sprite_frames = ExtResource("1_3vyb7")
@@ -49,7 +49,7 @@ animation = &"dodge_to_right"
 frame_progress = 0.71687376
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=794374147]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08302781, 0.42758775)
+transform = Transform3D(1, 0, 0, 0, 0.99822426, -0.059567712, 0, 0.059567712, 0.99822426, 0, 0.5475075, 0.428)
 
 [node name="Timer" type="Timer" parent="." unique_id=941879018]
 wait_time = 0.5

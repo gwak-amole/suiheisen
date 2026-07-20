@@ -7,7 +7,7 @@
 size = Vector3(1, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ie7qs"]
-size = Vector3(1, 5, 1)
+size = Vector3(0.7, 3, 0.7)
 
 [node name="obstacle" type="CharacterBody3D" unique_id=402051798]
 script = ExtResource("1_7ukg5")
