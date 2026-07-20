@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://oxu7v43stiak"]
-
-[ext_resource type="ArrayMesh" uid="uid://48eswirvhhaj" path="res://assets/main_game_assets/traffic_cone.tres" id="1_csc7f"]
-
-[node name="traffic_cone" type="MeshInstance3D" unique_id=1332923487]
-mesh = ExtResource("1_csc7f")
