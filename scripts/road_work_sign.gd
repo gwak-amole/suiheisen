@@ -1,5 +1,5 @@
 extends Node3D
-var side_offset = 0.5
+var side_offset = 0.55
 var y_offset = 0.4
 
 # Called when the node enters the scene tree for the first time.
