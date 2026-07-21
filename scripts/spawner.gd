@@ -8,7 +8,7 @@ signal hurt
 @export var timer: Timer
 var rng = RandomNumberGenerator.new();
 var chance_array = [1, 2, 3];
-var weights = PackedFloat32Array([1, 1, 2])
+var weights = PackedFloat32Array([1, 1, 1.2])
 var chance: int;
 var spawn_cap = 3
 var obs_in_scene = 0;
@@ -46,12 +46,12 @@ func _spawn(spawn_pos: Vector3, isLimbo: bool):
 
 func _on_timer_timeout() -> void:
 	if chance == 1:
-		_spawn(Vector3(0, 0, -10), false); 
+		_spawn(Vector3(0, 0, -15), false); 
 	elif chance == 2:
-		_spawn(Vector3(0, 0, -10), false);
+		_spawn(Vector3(0, 0, -15), false);
 	elif chance == 3:
 		print("spawning limbo")
-		_spawn(Vector3(0, 0, -10), true);
+		_spawn(Vector3(0, 0, -15), true);
 	chance = chance_array[rng.rand_weighted(weights)]; 
 	timer.start();
 
