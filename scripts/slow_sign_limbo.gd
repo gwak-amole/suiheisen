@@ -1,6 +1,7 @@
 extends Node3D
-var side_offset = 0.65
-var y_offset = 0.2
+var side_offset = 0;
+var y_offset = -1.5;
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

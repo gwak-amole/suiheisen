@@ -6,10 +6,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_tree().paused = true
 	anim_blink.show()
 	black.show()
 	await get_tree().create_timer(2.0).timeout
-	get_tree().paused = true
 	anim_blink.play("default")
 	black.hide()
 	await anim_blink.animation_finished

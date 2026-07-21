@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bi2hhpvight0v"]
+
+[ext_resource type="Script" uid="uid://dkygwifhln5fq" path="res://scripts/slow_sign_limbo.gd" id="1_rbfo1"]
+[ext_resource type="ArrayMesh" uid="uid://3mykltittnte" path="res://assets/main_game_assets/slow_sign_limbo.tres" id="1_v1mid"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rbfo1"]
+size = Vector3(8, 1.8, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rbfo1"]
+height = 3.5
+radius = 0.25
+
+[node name="Slow Sign Limbo" type="Node3D" unique_id=1796912432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+script = ExtResource("1_rbfo1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1993440590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = ExtResource("1_v1mid")
+
+[node name="obstacle_area" type="Area3D" parent="." unique_id=426797312]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="obstacle_area" unique_id=1147924585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_rbfo1")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="obstacle_area" unique_id=937027635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75, -3, 0)
+shape = SubResource("CylinderShape3D_rbfo1")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="obstacle_area" unique_id=462024745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, -3, 0)
+shape = SubResource("CylinderShape3D_rbfo1")

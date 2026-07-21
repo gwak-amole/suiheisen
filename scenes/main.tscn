@@ -52,7 +52,7 @@ _data = {
 &"fade_out": SubResource("Animation_tipki")
 }
 
-[node name="main" type="Node3D" unique_id=1869334182]
+[node name="Node3D" type="Node3D" unique_id=1869334182]
 
 [node name="Level" type="Node3D" parent="." unique_id=42789221]
 script = ExtResource("1_o6xl0")
