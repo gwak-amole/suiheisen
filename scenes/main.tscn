@@ -1,14 +1,27 @@
 [gd_scene format=3 uid="uid://btdoe57f6380h"]
 
+[ext_resource type="Texture2D" uid="uid://dlce44x6n1fhi" path="res://assets/background/sky.png" id="1_choun"]
 [ext_resource type="PackedScene" uid="uid://cjxfa38167n8p" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cyp5wcb2060w8" path="res://scripts/level.gd" id="1_o6xl0"]
 [ext_resource type="Script" uid="uid://1nlp4t3ty1kl" path="res://scripts/spawner.gd" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://c6a47ork47e0i" path="res://scenes/modules/module_1.tscn" id="2_85g3d"]
+[ext_resource type="Script" uid="uid://c075f1pu1q0sk" path="res://scripts/world_environment.gd" id="2_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://bnii70hrofbrs" path="res://scenes/modules/module_2.tscn" id="3_choun"]
 [ext_resource type="Script" uid="uid://7vtx21mriktj" path="res://scripts/game_controller.gd" id="3_sugp2"]
 [ext_resource type="FontFile" uid="uid://lflo3krkexmm" path="res://fonts/Geist_Pixel/GeistPixel-Regular-VariableFont_ELSH.ttf" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://bitp6vikaq4ek" path="res://assets/horizon_bar/horizon_bar_outline.png" id="5_tefeu"]
 [ext_resource type="Texture2D" uid="uid://c8gjxobitrbac" path="res://assets/horizon_bar/horizon_bar_fill.png" id="6_o6xl0"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ya4ey"]
+panorama = ExtResource("1_choun")
+filter = false
+
+[sub_resource type="Sky" id="Sky_eb6dy"]
+sky_material = SubResource("PanoramaSkyMaterial_ya4ey")
+
+[sub_resource type="Environment" id="Environment_trceg"]
+background_mode = 2
+sky = SubResource("Sky_eb6dy")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgp6g"]
 size = Vector3(60, 2, 60)
@@ -53,6 +66,10 @@ _data = {
 }
 
 [node name="Node3D" type="Node3D" unique_id=1869334182]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=644731867]
+environment = SubResource("Environment_trceg")
+script = ExtResource("2_ya4ey")
 
 [node name="Level" type="Node3D" parent="." unique_id=42789221]
 script = ExtResource("1_o6xl0")
