@@ -50,7 +50,6 @@ func _on_timer_timeout() -> void:
 	elif chance == 2:
 		_spawn(Vector3(0, 0, -15), false);
 	elif chance == 3:
-		print("spawning limbo")
 		_spawn(Vector3(0, 0, -15), true);
 	chance = chance_array[rng.rand_weighted(weights)]; 
 	timer.start();
@@ -61,7 +60,6 @@ func increase_spawn_freq():
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.name.contains("obstacle_area"):
-		print("delete")
 		if area.name.contains("hit"):
 			hurt.emit()
 		else:
