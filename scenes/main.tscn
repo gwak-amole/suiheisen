@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://lflo3krkexmm" path="res://fonts/Geist_Pixel/GeistPixel-Regular-VariableFont_ELSH.ttf" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://bitp6vikaq4ek" path="res://assets/horizon_bar/horizon_bar_outline.png" id="5_tefeu"]
 [ext_resource type="Texture2D" uid="uid://c8gjxobitrbac" path="res://assets/horizon_bar/horizon_bar_fill.png" id="6_o6xl0"]
+[ext_resource type="Script" uid="uid://d31fnr2tydt8u" path="res://scripts/buildings.gd" id="8_a8y0u"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ya4ey"]
 panorama = ExtResource("1_choun")
@@ -93,6 +94,9 @@ modules = Array[PackedScene]([ExtResource("2_85g3d"), ExtResource("3_choun")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/ground" unique_id=1256202456]
 shape = SubResource("BoxShape3D_sgp6g")
+
+[node name="Buildings" type="Node3D" parent="." unique_id=879692874]
+script = ExtResource("8_a8y0u")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1616653918]
 transform = Transform3D(1, 0, 0, 0, -2.9802322e-08, 1, 0, -1, -2.9802322e-08, 0, 8, 0)

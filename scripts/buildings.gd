@@ -1,11 +1,15 @@
 extends Node3D
-
+@export var building_modules: Array[PackedScene] = [];
+var amount = 20;
+var offset = 2;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for n in amount:
+		spawn_module(n*offset*-1)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func spawn_module(n):
+	var instance = building_modules.pick_random().instantiate();
+	instance.position.z = n;
+	add_child(instance)
