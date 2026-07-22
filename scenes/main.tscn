@@ -14,6 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://bitp6vikaq4ek" path="res://assets/horizon_bar/horizon_bar_outline.png" id="5_tefeu"]
 [ext_resource type="Texture2D" uid="uid://c8gjxobitrbac" path="res://assets/horizon_bar/horizon_bar_fill.png" id="6_o6xl0"]
 [ext_resource type="Script" uid="uid://d31fnr2tydt8u" path="res://scripts/buildings.gd" id="8_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://dpov6p6j8dk8f" path="res://scenes/building_modules/buildings_1.tscn" id="9_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://kwossry8jk0o" path="res://scenes/building_modules/buildings_2.tscn" id="10_0ld40"]
+[ext_resource type="PackedScene" uid="uid://cy0y63usxiwmf" path="res://scenes/building_modules/buildings_3.tscn" id="11_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://djwcmgxsl0u80" path="res://scenes/building_modules/buildings_4.tscn" id="12_yc10j"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ya4ey"]
 panorama = ExtResource("1_choun")
@@ -97,6 +101,7 @@ shape = SubResource("BoxShape3D_sgp6g")
 
 [node name="Buildings" type="Node3D" parent="." unique_id=879692874]
 script = ExtResource("8_a8y0u")
+modules = Array[PackedScene]([ExtResource("9_dp3eg"), ExtResource("10_0ld40"), ExtResource("11_gqmmt"), ExtResource("12_yc10j")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1616653918]
 transform = Transform3D(1, 0, 0, 0, -2.9802322e-08, 1, 0, -1, -2.9802322e-08, 0, 8, 0)

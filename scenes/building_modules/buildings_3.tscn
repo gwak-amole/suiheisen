@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cy0y63usxiwmf"]
+
+[ext_resource type="PackedScene" uid="uid://ve0g56tnjnyr" path="res://assets/main_game_assets/building1.glb" id="1_60mom"]
+[ext_resource type="Script" uid="uid://b1wb2f533jo61" path="res://scripts/building.gd" id="2_is073"]
+[ext_resource type="PackedScene" uid="uid://ccqjv16681qym" path="res://assets/main_game_assets/building2.glb" id="2_knh3b"]
+[ext_resource type="PackedScene" uid="uid://b2ltfb7onqt4y" path="res://assets/main_game_assets/building3.glb" id="3_is073"]
+
+[node name="buildings3" type="Node3D" unique_id=630258310]
+script = ExtResource("2_is073")
+
+[node name="building1" parent="." unique_id=490886882 instance=ExtResource("1_60mom")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="building2" parent="." unique_id=1929665255 instance=ExtResource("2_knh3b")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.7484555e-07, 0, 4)
+
+[node name="building3" parent="." unique_id=472123168 instance=ExtResource("3_is073")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.7484555e-07, 0, -4)

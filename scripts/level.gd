@@ -1,6 +1,6 @@
 extends Node3D
 @export var modules: Array[PackedScene] = [];
-var amount = 20;
+var amount = 40;
 var offset = 2;
 var isFirst = true;
 
