@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 	
 	
 func _spawn(spawn_pos: Vector3, isLimbo: bool):
-	if obs_in_scene < spawn_cap && !just_spawned:
+	if obs_in_scene < int(spawn_cap) && !just_spawned:
 		var obj = obstacle.instantiate();
 		obj.is_limbo = isLimbo;
 		obj.initialize();
@@ -56,7 +56,14 @@ func _on_timer_timeout() -> void:
 
 func increase_spawn_freq():
 	timer.wait_time *= 0.98
-	cooldown *= 0.88
+	if cooldown <= 0.5:
+		cooldown = 0.5
+	else:
+		cooldown *= 0.88
+	if spawn_cap > 6:
+		spawn_cap = 6
+	else:
+		spawn_cap += 0.1
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if area.name.contains("obstacle_area"):
