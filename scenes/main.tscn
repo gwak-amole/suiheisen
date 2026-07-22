@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://c075f1pu1q0sk" path="res://scripts/world_environment.gd" id="2_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://bnii70hrofbrs" path="res://scenes/modules/module_2.tscn" id="3_choun"]
 [ext_resource type="Script" uid="uid://7vtx21mriktj" path="res://scripts/game_controller.gd" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://d0uws2u7ffv8" path="res://assets/background/buildings_left.png" id="3_trceg"]
+[ext_resource type="Texture2D" uid="uid://cvc0nigoyotxt" path="res://assets/background/buildings_right.png" id="4_a8y0u"]
 [ext_resource type="FontFile" uid="uid://lflo3krkexmm" path="res://fonts/Geist_Pixel/GeistPixel-Regular-VariableFont_ELSH.ttf" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://bitp6vikaq4ek" path="res://assets/horizon_bar/horizon_bar_outline.png" id="5_tefeu"]
 [ext_resource type="Texture2D" uid="uid://c8gjxobitrbac" path="res://assets/horizon_bar/horizon_bar_fill.png" id="6_o6xl0"]
@@ -70,6 +72,18 @@ _data = {
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=644731867]
 environment = SubResource("Environment_trceg")
 script = ExtResource("2_ya4ey")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1915963185]
+transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, -165, 228, -785)
+pixel_size = 3.0
+texture_filter = 0
+texture = ExtResource("3_trceg")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=381318737]
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 159, 228, -785)
+pixel_size = 3.0
+texture_filter = 0
+texture = ExtResource("4_a8y0u")
 
 [node name="Level" type="Node3D" parent="." unique_id=42789221]
 script = ExtResource("1_o6xl0")
