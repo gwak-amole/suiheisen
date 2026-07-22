@@ -19,7 +19,11 @@
 [ext_resource type="PackedScene" uid="uid://cy0y63usxiwmf" path="res://scenes/building_modules/buildings_3.tscn" id="11_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://djwcmgxsl0u80" path="res://scenes/building_modules/buildings_4.tscn" id="12_yc10j"]
 [ext_resource type="AudioStream" uid="uid://c5hsja0jehher" path="res://audio/background_music.wav" id="19_0ld40"]
+[ext_resource type="Texture2D" uid="uid://dfbinr5mxr7ld" path="res://assets/pause/pause_menu.png" id="19_jscy8"]
 [ext_resource type="AudioStream" uid="uid://ccfapy7gdtltn" path="res://audio/hurt copy.wav" id="20_gqmmt"]
+[ext_resource type="Texture2D" uid="uid://bxnv0n22t1r53" path="res://assets/pause/pause_buttons.png" id="20_pm3ni"]
+[ext_resource type="Texture2D" uid="uid://f86yup7jyb74" path="res://assets/pause/pause_buttons_pressed.png" id="21_pm3ni"]
+[ext_resource type="Texture2D" uid="uid://c32de8xg6os1m" path="res://assets/pause/pause_buttons_hovered.png" id="22_y6deb"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ya4ey"]
 panorama = ExtResource("1_choun")
@@ -129,7 +133,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.5)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=833460986]
 shape = SubResource("BoxShape3D_0wfyh")
 
-[node name="Game Controller" type="Node" parent="." unique_id=1999561990 node_paths=PackedStringArray("hurt_audio", "spawner", "timer", "points_label", "horizon", "anim", "fade_texture", "instructions")]
+[node name="Game Controller" type="Node" parent="." unique_id=1999561990 node_paths=PackedStringArray("hurt_audio", "spawner", "timer", "points_label", "horizon", "anim", "fade_texture", "instructions", "pause_menu")]
 process_mode = 3
 script = ExtResource("3_sugp2")
 hurt_audio = NodePath("../hurt")
@@ -140,6 +144,7 @@ horizon = NodePath("../CanvasLayer/Control/Horizon Bar")
 anim = NodePath("../AnimationPlayer")
 fade_texture = NodePath("../CanvasLayer/fade")
 instructions = NodePath("../CanvasLayer/instructions")
+pause_menu = NodePath("../CanvasLayer/pause")
 
 [node name="Timer" type="Timer" parent="Game Controller" unique_id=651360898]
 autostart = true
@@ -239,6 +244,118 @@ This is a game meant to be played on a 4-key macropad, but since you're most lik
 on that note, hit 'x' to start the game :)"
 autowrap_mode = 3
 
+[node name="pause" type="Panel" parent="CanvasLayer" unique_id=1810003158]
+process_mode = 3
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="pause menu" type="TextureRect" parent="CanvasLayer/pause" unique_id=2051099335]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -150.0
+offset_right = 256.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_jscy8")
+
+[node name="Resume" type="TextureButton" parent="CanvasLayer/pause" unique_id=981866801]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -82.0
+offset_right = 240.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("20_pm3ni")
+texture_pressed = ExtResource("21_pm3ni")
+texture_hover = ExtResource("22_y6deb")
+
+[node name="Label" type="Label" parent="CanvasLayer/pause/Resume" unique_id=847375924]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -28.5
+offset_right = 65.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_jyhfs")
+theme_override_font_sizes/font_size = 48
+text = "resume"
+
+[node name="Quit" type="TextureButton" parent="CanvasLayer/pause" unique_id=700452828]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = 20.0
+offset_right = 240.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("20_pm3ni")
+texture_pressed = ExtResource("21_pm3ni")
+texture_hover = ExtResource("22_y6deb")
+
+[node name="Label" type="Label" parent="CanvasLayer/pause/Quit" unique_id=849320095]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -29.5
+offset_right = 37.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_jyhfs")
+theme_override_font_sizes/font_size = 48
+text = "quit"
+
+[node name="Label" type="Label" parent="CanvasLayer/pause" unique_id=1115992837]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.5
+offset_top = -141.5
+offset_right = 70.5
+offset_bottom = -86.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_jyhfs")
+theme_override_font_sizes/font_size = 40
+text = "paused"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=276404433]
 libraries/ = SubResource("AnimationLibrary_85g3d")
 
@@ -253,3 +370,5 @@ autoplay = true
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area3D" to="Spawner" method="_on_area_3d_area_entered"]
 [connection signal="timeout" from="Game Controller/Timer" to="Game Controller" method="_on_timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/pause/Resume" to="Game Controller" method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause/Quit" to="Game Controller" method="_on_quit_pressed"]
