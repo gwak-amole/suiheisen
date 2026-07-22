@@ -1,6 +1,7 @@
 extends Node
 signal faster
 signal game_over
+@export var hurt_audio: AudioStreamPlayer
 @export var spawner: Node3D;
 @export var timer: Timer;
 @export var points_label: Label
@@ -40,10 +41,12 @@ func add_points():
 	points_label.text = str(points);
 
 func hurt():
+	hurt_audio.play()
 	horizon.value = maxf(horizon.value - horizon.step, horizon.min_value)
 	if horizon.value == 0:
 		game_over.emit();
 		fade_texture.show()
 		anim.play("fade_out")
 		await anim.animation_finished
-		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+		if is_inside_tree():
+			get_tree().change_scene_to_file("res://scenes/game_over.tscn")

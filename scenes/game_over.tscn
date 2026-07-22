@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://lflo3krkexmm" path="res://fonts/Geist_Pixel/GeistPixel-Regular-VariableFont_ELSH.ttf" id="2_tbwuq"]
 [ext_resource type="Texture2D" uid="uid://b2d6t0nmpnilh" path="res://assets/buttons/instruction_buttons_1.png" id="4_7m3ot"]
 [ext_resource type="Texture2D" uid="uid://bd24ov57qt37v" path="res://assets/buttons/instruction_buttons_2.png" id="5_v3hpu"]
+[ext_resource type="AudioStream" uid="uid://che4ddwyxcmma" path="res://audio/533034__evretro__8-bit-game-over-soundtune.wav" id="6_v3hpu"]
 
 [sub_resource type="Animation" id="Animation_7m3ot"]
 length = 0.001
@@ -218,3 +219,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=497708728]
 libraries/ = SubResource("AnimationLibrary_irg28")
+
+[node name="bg_music" type="AudioStreamPlayer" parent="." unique_id=486907453]
+stream = ExtResource("6_v3hpu")
+autoplay = true

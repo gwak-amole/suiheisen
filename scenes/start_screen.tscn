@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bd24ov57qt37v" path="res://assets/buttons/instruction_buttons_2.png" id="4_r2jwc"]
 [ext_resource type="Texture2D" uid="uid://b2d6t0nmpnilh" path="res://assets/buttons/instruction_buttons_1.png" id="6_5pab1"]
 [ext_resource type="SpriteFrames" uid="uid://c2jcy8dci4v8f" path="res://assets/sprite_frames/blinking_frames.tres" id="7_o30b1"]
+[ext_resource type="AudioStream" uid="uid://byr2nuqlgp8io" path="res://audio/327447__freelibras__birds-chirping-on-a-tree-3.wav" id="8_ka6nf"]
+[ext_resource type="AudioStream" uid="uid://dlsqlow5s41u7" path="res://audio/743711__axelthecocker02__sad-game-menu-loop-2.mp3" id="9_ws7p0"]
+[ext_resource type="AudioStream" uid="uid://bn5aop3abrfk0" path="res://audio/787872__modusmogulus__blink-sound-effect-cc0.mp3" id="10_ecdxc"]
 
 [sub_resource type="Animation" id="Animation_o30b1"]
 length = 0.001
@@ -70,6 +73,45 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("birds:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("blinking:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qls88"]
+resource_name = "blink"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blinking:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ws7p0"]
 resource_name = "fade_out"
@@ -85,6 +127,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("birds:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bg music:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
 }
 
 [sub_resource type="Animation" id="Animation_ka6nf"]
@@ -143,6 +209,7 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ws7p0"]
 _data = {
 &"RESET": SubResource("Animation_o30b1"),
+&"blink": SubResource("Animation_qls88"),
 &"fade_out": SubResource("Animation_ws7p0"),
 &"start_screen_movement": SubResource("Animation_ka6nf")
 }
@@ -274,3 +341,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="birds" type="AudioStreamPlayer" parent="." unique_id=2022484977]
+stream = ExtResource("8_ka6nf")
+autoplay = true
+
+[node name="bg music" type="AudioStreamPlayer" parent="." unique_id=1280422385]
+stream = ExtResource("9_ws7p0")
+autoplay = true
+
+[node name="blinking" type="AudioStreamPlayer" parent="." unique_id=175318160]
+process_mode = 3
+stream = ExtResource("10_ecdxc")

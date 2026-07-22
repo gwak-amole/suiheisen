@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://kwossry8jk0o" path="res://scenes/building_modules/buildings_2.tscn" id="10_0ld40"]
 [ext_resource type="PackedScene" uid="uid://cy0y63usxiwmf" path="res://scenes/building_modules/buildings_3.tscn" id="11_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://djwcmgxsl0u80" path="res://scenes/building_modules/buildings_4.tscn" id="12_yc10j"]
+[ext_resource type="AudioStream" uid="uid://c5hsja0jehher" path="res://audio/background_music.wav" id="19_0ld40"]
+[ext_resource type="AudioStream" uid="uid://ccfapy7gdtltn" path="res://audio/hurt copy.wav" id="20_gqmmt"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ya4ey"]
 panorama = ExtResource("1_choun")
@@ -127,9 +129,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.5)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=833460986]
 shape = SubResource("BoxShape3D_0wfyh")
 
-[node name="Game Controller" type="Node" parent="." unique_id=1999561990 node_paths=PackedStringArray("spawner", "timer", "points_label", "horizon", "anim", "fade_texture", "instructions")]
+[node name="Game Controller" type="Node" parent="." unique_id=1999561990 node_paths=PackedStringArray("hurt_audio", "spawner", "timer", "points_label", "horizon", "anim", "fade_texture", "instructions")]
 process_mode = 3
 script = ExtResource("3_sugp2")
+hurt_audio = NodePath("../hurt")
 spawner = NodePath("../Spawner")
 timer = NodePath("Timer")
 points_label = NodePath("../CanvasLayer/Control/Points")
@@ -238,6 +241,14 @@ autowrap_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=276404433]
 libraries/ = SubResource("AnimationLibrary_85g3d")
+
+[node name="bg music" type="AudioStreamPlayer" parent="." unique_id=1475207868]
+stream = ExtResource("19_0ld40")
+autoplay = true
+
+[node name="hurt" type="AudioStreamPlayer" parent="." unique_id=699569111]
+stream = ExtResource("20_gqmmt")
+autoplay = true
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area3D" to="Spawner" method="_on_area_3d_area_entered"]

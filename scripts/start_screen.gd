@@ -11,6 +11,7 @@ func _ready() -> void:
 	black.show()
 	await get_tree().create_timer(2.0).timeout
 	anim_blink.play("default")
+	anim.play("blink")
 	black.hide()
 	await anim_blink.animation_finished
 	anim_blink.hide()
