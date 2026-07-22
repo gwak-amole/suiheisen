@@ -104,7 +104,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.5)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=833460986]
 shape = SubResource("BoxShape3D_0wfyh")
 
-[node name="Game Controller" type="Node" parent="." unique_id=1999561990 node_paths=PackedStringArray("spawner", "timer", "points_label", "horizon", "anim", "fade_texture")]
+[node name="Game Controller" type="Node" parent="." unique_id=1999561990 node_paths=PackedStringArray("spawner", "timer", "points_label", "horizon", "anim", "fade_texture", "instructions")]
+process_mode = 3
 script = ExtResource("3_sugp2")
 spawner = NodePath("../Spawner")
 timer = NodePath("Timer")
@@ -112,6 +113,7 @@ points_label = NodePath("../CanvasLayer/Control/Points")
 horizon = NodePath("../CanvasLayer/Control/Horizon Bar")
 anim = NodePath("../AnimationPlayer")
 fade_texture = NodePath("../CanvasLayer/fade")
+instructions = NodePath("../CanvasLayer/instructions")
 
 [node name="Timer" type="Timer" parent="Game Controller" unique_id=651360898]
 autostart = true
@@ -165,6 +167,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="instructions" type="Panel" parent="CanvasLayer" unique_id=1955915006]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="instructions_rect" type="ColorRect" parent="CanvasLayer/instructions" unique_id=1528407309]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -321.0
+offset_top = -200.0
+offset_right = 321.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.099985994, 0.099985994, 0.09998598, 1)
+
+[node name="instructions" type="Label" parent="CanvasLayer/instructions" unique_id=2038719544]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -295.0
+offset_top = -160.5
+offset_right = 295.0
+offset_bottom = 160.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_jyhfs")
+theme_override_font_sizes/font_size = 24
+text = "Welcome to Suiheisen!
+This is a game meant to be played on a 4-key macropad, but since you're most likely on a regular keyboard use the keys 'z' 'x' 'c' and 'v'.
+'z' is to dodge left, 'v' is to dodge right, and 'c' is to duck (limbo position)
+'x' is used as an 'ok/enter' button!
+
+on that note, hit 'x' to start the game :)"
+autowrap_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=276404433]
 libraries/ = SubResource("AnimationLibrary_85g3d")

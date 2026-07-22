@@ -7,12 +7,17 @@ signal game_over
 @export var horizon: TextureProgressBar
 @export var anim: AnimationPlayer
 @export var fade_texture: ColorRect
+@export var instructions: Node
 var hit = false;
 var points: int = 0;
 var points_inc = 5;
+var instructions_shown = true;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_tree().paused = true
+	instructions_shown = true;
+	instructions.show()
 	fade_texture.hide()
 	spawner.add_points.connect(add_points)
 	spawner.hurt.connect(hurt)
@@ -20,8 +25,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
+	if instructions_shown and Input.is_action_just_pressed("x"):
+		instructions_shown = false;
+		instructions.hide();
+		get_tree().paused = false;
 func _on_timer_timeout() -> void:
 	points_inc *= 1.02;
 	faster.emit()
