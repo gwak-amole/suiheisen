@@ -1,7 +1,8 @@
 extends Node3D
 
 @onready var level = $"../"
-var speed = 8
+var speed = 6
+var is_left = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,5 +13,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position.z += speed * delta
 	if position.z > 15:
-		get_parent().spawn_module(position.z+(-1*get_parent().amount*get_parent().offset))
+		if is_left:
+			level.spawn_module(position.z+(-1*level.amount*level.offset))
 		queue_free()

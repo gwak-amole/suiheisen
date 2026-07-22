@@ -8,10 +8,10 @@
 [node name="buildings1" type="Node3D" unique_id=1950986214]
 script = ExtResource("1_p26db")
 
-[node name="building3" parent="." unique_id=472123168 instance=ExtResource("1_oqgcj")]
+[node name="building3" parent="." unique_id=1998910085 instance=ExtResource("1_oqgcj")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="building1" parent="." unique_id=490886882 instance=ExtResource("2_p26db")]
+[node name="building1" parent="." unique_id=14001762 instance=ExtResource("2_p26db")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 4)
 
 [node name="building4" parent="." unique_id=366438103 instance=ExtResource("3_ap1k1")]

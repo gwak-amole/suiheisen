@@ -9,7 +9,6 @@ func _ready() -> void:
 	for n in amount:
 		spawn_module(n*offset*-1)
 
-
 func spawn_module(n):
 	if isFirst:
 		var instance = modules[0].instantiate();
