@@ -8,10 +8,11 @@ var y_offset: float;
 var is_limbo = false;
 var is_initialized = false;
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+var SPEED = 5.0
 
 func initialize():
+	SPEED = GlobalTimer.obstacle_speed
+	GlobalTimer.connect("change_speed", change_speed)
 	rng.randomize()
 	if is_limbo:
 		var obstacle = limbo_array.pick_random().instantiate();
@@ -31,3 +32,5 @@ func _physics_process(delta: float) -> void:
 		velocity.z = direction.z * SPEED
 	
 	move_and_slide()
+func change_speed():
+	SPEED = GlobalTimer.obstacle_speed

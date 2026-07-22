@@ -15,6 +15,10 @@ run/main_scene="uid://dxdtjbd3v8peq"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalTimer="*uid://c3hvphpvycpjh"
+
 [display]
 
 window/size/mode=3
